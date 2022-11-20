@@ -12,10 +12,8 @@ import SwitchToLightIcon from "../images/icon-sun.svg";
  const toggleclass= checked?"":"dark";
  const toggleCheck=()=>{
     setchecked(!checked)
- 
-
  }
-
+// i think ill handle this using contextapi but i need any alternatvue metnod
     return(
         <header className={toggleclass }>
              <h1 className="head">T O D O</h1>
