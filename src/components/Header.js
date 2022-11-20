@@ -13,7 +13,7 @@ import SwitchToLightIcon from "../images/icon-sun.svg";
  const toggleCheck=()=>{
     setchecked(!checked)
  
-    // document.body.className = checked;
+
  }
 
     return(
