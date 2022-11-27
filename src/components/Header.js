@@ -1,30 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SwitchToDarkIcon from "../images/icon-moon.svg";
 import SwitchToLightIcon from "../images/icon-sun.svg";
 
-
-
-    const Header = () => {
+    const Header = ({checked,setchecked}) => {
 // the lines below changes icons on click 
- const [checked,setchecked]= useState();
+const checkbox= checked? SwitchToDarkIcon :SwitchToLightIcon;
 
- const checkbox= checked? SwitchToDarkIcon :SwitchToLightIcon ;
- const toggleclass= checked?"":"dark";
  const toggleCheck=()=>{
     setchecked(!checked)
  }
 // i think ill handle this using contextapi but i need any alternatvue metnod
     return(
-        <header className={toggleclass }>
+        <header >
              <h1 className="head">T O D O</h1>
              <div onClick={toggleCheck}>  
                  <img src={checkbox} alt="icon-sun" className="themeicon" />
              </div>
          </header>
-             
-   
      );
   }
-
-
 export default Header;
