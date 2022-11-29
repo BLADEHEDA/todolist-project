@@ -5,16 +5,7 @@ import Todoform from './Todoform';
 
 function Todolist(){
     const [tasks , settasks] = useState(Tasks);
-    const [taskx , settaskx] = useState([]);
     const [strike , setstrike] = useState();
-
-    //   the lines below add tasks to the list 
-const Addtasks= (task)=>{
-    // task.preventDefault();
-    const newtasks= [task, ...taskx];
-    settaskx(newtasks);
-    console.log(...taskx);
-}
 
     // the function below removes all the items from the list 
     const remove= ()=>{
@@ -26,33 +17,58 @@ const Addtasks= (task)=>{
         settasks(newtasks);
     }
     // the lines below strikes the lines when ou click on the rask complieted
-  
-        const complete=(id)=>{
-            setstrike(!strike);
-        }
-        const togglestrike=strike? "darks":"lights";
-// space allocatedfor for handlechange function
+    const complete=(id)=>{
+      
+    //    strike= tasks[0
+        setstrike(!strike);
+    }
+    console.log(tasks[0])
 
+       const togglestrike=strike? "darks":"lights";
 
-// space allocated for the handle submit function 
+    //   the lines below add tasks to the list 
+    const Addtasks= (task)=>{
+    if(!task.task){
+       return; 
+    }
+    const newtask= [task, ...tasks];
+    settasks(newtask);
+    console.log(newtask);
+};
+// the code below toggles styes on a list if it is complete 
+// const completed=(id)=>{
+//     let updateTask= tasks.map(id=>{
+//         if(tasks.id===id){
+//         tasks.completed=!tasks.completed;
+//         }
+//         return tasks;
+//     })
+// }
     return(
-        <div>
-           {/* space alllocated for the Todoform div */}
-           <Todoform onClick={Addtasks}/>
-            <div className="Tass">
+        <div >
+           <Todoform onSubmit={Addtasks}/>
+            <div className='Tasks'>
              
            {tasks.map((e)=>{
                  const {id,task} = e;
         return(
-             
-            <div key={id} className={`bar ${togglestrike}`}>
-           <p className={`Appx ${togglestrike}`} onClick={complete}>{task}</p>  
+         
+            <div > 
+             <span className="radio" id='radiox'></span>
+            <div key={id} className={`barx`}  >
+           <p className={`Appx ${togglestrike}`} onClick={complete}>{task} </p>  
               <button onClick={()=> removeeach(id)}>remove each</button>
             </div>   
-        )      
+             </div>  
+        )    
         })} 
+        <div className="status">
+        <button onClick={remove}>Clear All</button>
+        <button onClick={remove}>Active</button>     {/*this is fpr the task not yet completed  */}
+        <button onClick={remove}>Completed</button> {/*this is for the tasks completed   */}
+        </div>
+    
 
-        <button onClick={remove}>remove all</button>
             </div>
 
         </div>

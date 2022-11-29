@@ -10,10 +10,8 @@ import Todolist from './components/Todolist';
 const [checked,setchecked]= useState();
 const toggleclass= checked?"dark":"light";
   return (
-    // <div className= {`App  ${themeclass}`}> 
     
      <div className={`App ${toggleclass}`}>
-       {/* <button onClick={toggletheme}>Toggle Theme</button> */}
           <section className='main' >
       <div className='container'>
       <Header checked={checked} setchecked={setchecked} />    

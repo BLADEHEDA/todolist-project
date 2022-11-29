@@ -13,17 +13,23 @@ const Todoform = (props) => {
         e.preventDefault();
           props.onSubmit({
             id:Math.floor(Math.random()*10000),
-            task:name
+            task:name,
+            completed:false
         })
         setname("") 
     }
   return (
     <div>
             <form className="list-input" onSubmit={handleSubmit} >
+              <div className="lists"> 
                     <span className="radio"></span>
                     <input type="text" className="bar" value={name} placeholder="Create a newdddd Todo" 
                     onChange={handleChange} />
-                </form>  
+              </div>
+             <div className="list1" ><button  className="button" >ADD</button> </div>
+
+                  
+                </form> 
     </div>
   )
 }

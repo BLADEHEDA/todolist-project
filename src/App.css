@@ -41,7 +41,7 @@ footer{
   text-align: center;
 }
 .App{
-  background:var(--background);
+  background:var(--radiobox);
     width:100%;
     height:100vh;
   }
@@ -72,7 +72,7 @@ footer{
     border: none;
     background:var(--background);
     padding-left: 2.5em;
-    font-size: 1.3em;
+    font-size: 1em;
     color:var(--color1);
     margin-bottom: 1em;
   }
@@ -80,10 +80,10 @@ footer{
     outline: none;
   }
   .radio{
-    width:1.5em;
-    height: 1.5em;
+    width:1.2em;
+    height: 1.2em;
     position: absolute;
-    margin-top: 1em;
+    margin-top: 0.6em;
     margin-left: 1em;
     background: var(--lists);
     border-radius: 50%;
@@ -94,12 +94,51 @@ footer{
 
   .App .lights{
     /* background:green; */
-    text-decoration:line-through;
+    text-decoration:none;
   }
   .App .darks{
     background-color: orange;
-    text-decoration:double;
+    text-decoration:line-through;
   }
+  .list-input{
+    display: flex;
+    margin: 0;
+  }
+  .list1{
+ flex:5%;
+  }
+  .lists{
+    flex: 95%;
+     }
+  .button{
+    padding: 1em 0.7em;
+    background:var(--background);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color:var(--color1);
+  }
+.Tasks{
+  background: var(--background);
+  border-radius: 5px;
+  /* padding: 1em 0em; */
+}
+  .barx{
+    width:100%;
+    padding:0.7em;
+    padding-left: 2.5em;
+    font-size: 1em;
+    color:var(--color1);
+   border-bottom:  solid 0.1px var(--color-active);
+   padding-top: 1em ;
+   padding-bottom: 1em;;
+  }
+  #radiox{
+
+    margin-top: 1em;
+
+  }
+
 }
 @media(min-width:600px){
   .main{
@@ -110,5 +149,14 @@ footer{
     /* border:solid 1px white; */
     width:60%;
   }
-
+  .bar{
+    width:100%;
+    font-size: 1.1em;
+  }
+  .list-input{
+    display: block;
+  }
+  .list1{
+    display: none;
+  }
 }
