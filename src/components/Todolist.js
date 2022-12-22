@@ -21,7 +21,7 @@ function Todolist(){
     if(!task.task){
        return; 
     }
-    const newtask= [task, ...tasks];
+    const newtask= [task, ...tasks];   
     settasks(newtask);
 };
 
@@ -35,17 +35,12 @@ function Todolist(){
             if(task.completed){
               
                setstrike(!strike);
-                console.log(tasks);
-                console.log(Tasks);
               
             }   
-         
-            console.log("hello");
-             return task;
-          
+             return task;   
          })
-    
         }
+        
     return(
         <div >
            <Todoform onSubmit={Addtasks}/>
@@ -54,15 +49,13 @@ function Todolist(){
            {tasks.map((e)=>{
                  const {id,task} = e;
         return(
-            // completeTodo={completeTodo}
+
             <div > 
-             <span className="radio" id='radiox'></span>
+             {/* <span className="radio" id='radiox'></span> */}
+
             <div key={id} className={`barx`}  >
-           <p className={`Appx ${togglestrike}`}  onClick={completed} >{task} </p>  
-           <p className={`Appx`}  onClick={completed} >{task} </p> 
-           
+           <p className={`Appx ${togglestrike}`}  onClick={completed} >{task} </p>           
               <button onClick={()=> removeeach(id)}>remove each</button>
-              {/* <p className={`Appx `}  onClick={()=> completed(tasks.id)}>{task} </p>  */}
             </div>   
              </div>  
         )    
