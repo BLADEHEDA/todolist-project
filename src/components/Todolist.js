@@ -2,29 +2,19 @@ import React from 'react';
 import {Tasks} from "./Tasks";
 import {useState} from "react"
 import Todoform from './Todoform';
-
+ 
 function Todolist(){
     const [tasks , settasks] = useState(Tasks);
-    const [strike , setstrike] = useState();
-
+  
     // the function below removes all the items from the list 
     const remove= ()=>{
-        settasks([]);
+        settasks([]);                 
     }
     // the function below removes esch item individualy 
     const removeeach= (id)=>{        
         let newtasks= tasks.filter((e)=>e.id !==id)
         settasks(newtasks);
     }
-    // the lines below strikes the lines when ou click on the rask complieted
-    const complete=(id)=>{
-      
-    //    strike= tasks[0
-        setstrike(!strike);
-    }
-    console.log(tasks[0])
-
-       const togglestrike=strike? "darks":"lights";
 
     //   the lines below add tasks to the list 
     const Addtasks= (task)=>{
@@ -33,17 +23,29 @@ function Todolist(){
     }
     const newtask= [task, ...tasks];
     settasks(newtask);
-    console.log(newtask);
 };
-// the code below toggles styes on a list if it is complete 
-// const completed=(id)=>{
-//     let updateTask= tasks.map(id=>{
-//         if(tasks.id===id){
-//         tasks.completed=!tasks.completed;
-//         }
-//         return tasks;
-//     })
-// }
+
+// the code below toggles styles on a list if it is complete 
+    const [strike , setstrike] = useState(tasks);
+    const togglestrike=strike? "darks":"lights";
+
+        const completed=(id)=>{
+         let updateTask = tasks.map(task =>{
+ 
+            if(task.completed){
+              
+               setstrike(!strike);
+                console.log(tasks);
+                console.log(Tasks);
+              
+            }   
+         
+            console.log("hello");
+             return task;
+          
+         })
+    
+        }
     return(
         <div >
            <Todoform onSubmit={Addtasks}/>
@@ -52,26 +54,31 @@ function Todolist(){
            {tasks.map((e)=>{
                  const {id,task} = e;
         return(
-         
+            // completeTodo={completeTodo}
             <div > 
              <span className="radio" id='radiox'></span>
             <div key={id} className={`barx`}  >
-           <p className={`Appx ${togglestrike}`} onClick={complete}>{task} </p>  
+           <p className={`Appx ${togglestrike}`}  onClick={completed} >{task} </p>  
+           <p className={`Appx`}  onClick={completed} >{task} </p> 
+           
               <button onClick={()=> removeeach(id)}>remove each</button>
+              {/* <p className={`Appx `}  onClick={()=> completed(tasks.id)}>{task} </p>  */}
             </div>   
              </div>  
         )    
         })} 
+        
+        {/* Dont bother about this section i"ll tackle this once im done doing whatever i was doing*/}
         <div className="status">
         <button onClick={remove}>Clear All</button>
         <button onClick={remove}>Active</button>     {/*this is fpr the task not yet completed  */}
-        <button onClick={remove}>Completed</button> {/*this is for the tasks completed   */}
+        <button onClick={remove}>Completed</button> {/*this is for the tasks completed  onClick={()=> completed(tasks.id)}  */}
         </div>
     
 
             </div>
 
-        </div>
+.        </div>
     );
 };
 export default Todolist
