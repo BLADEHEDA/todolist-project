@@ -99,6 +99,7 @@ footer{
   .App .darks{
     background-color: orange;
     text-decoration:line-through;
+   
   }
   .list-input{
     display: flex;
@@ -132,6 +133,7 @@ footer{
    border-bottom:  solid 0.1px var(--color-active);
    padding-top: 1em ;
    padding-bottom: 1em;;
+   border: solid 1px black;
   }
   #radiox{
 

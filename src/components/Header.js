@@ -9,7 +9,7 @@ const checkbox= checked? SwitchToDarkIcon :SwitchToLightIcon;
  const toggleCheck=()=>{
     setchecked(!checked)
  }
-// i think ill handle this using contextapi but i need any alternatvue metnod
+
     return(
         <header >
              <h1 className="head">T O D O</h1>

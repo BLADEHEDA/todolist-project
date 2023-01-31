@@ -3,7 +3,7 @@ import {Tasks} from "./Tasks";
 import {useState} from "react"
 import Todoform from './Todoform';
  
-function Todolist(){
+function Todolist(props){
     const [tasks , settasks] = useState(Tasks);
   
     // the function below removes all the items from the list 
@@ -26,35 +26,29 @@ function Todolist(){
 };
 
 // the code below toggles styles on a list if it is complete 
-    const [strike , setstrike] = useState(tasks);
+    const [strike , setstrike] = useState();
     const togglestrike=strike? "darks":"lights";
 
-        const completed=(id)=>{
-         let updateTask = tasks.map(task =>{
- 
-            if(task.completed){
-              
+        const completed=(e)=>{
                setstrike(!strike);
-              
-            }   
-             return task;   
-         })
         }
-        
+
     return(
         <div >
            <Todoform onSubmit={Addtasks}/>
             <div className='Tasks'>
              
            {tasks.map((e)=>{
-                 const {id,task} = e;
+                 const {id,task,completed} = e;
+                 console.log(" the state of completenes i: "+ completed);
         return(
 
             <div > 
              {/* <span className="radio" id='radiox'></span> */}
 
             <div key={id} className={`barx`}  >
-           <p className={`Appx ${togglestrike}`}  onClick={completed} >{task} </p>           
+            <input type="checkbox" />
+           <p  onClick={completed} className={`Appx ${togglestrike}`}   >{task} </p>           
               <button onClick={()=> removeeach(id)}>remove each</button>
             </div>   
              </div>  
@@ -70,6 +64,7 @@ function Todolist(){
     
 
             </div>
+            
 
 .        </div>
     );
